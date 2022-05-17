@@ -36,7 +36,12 @@
   hosts: launched
   connection: ssh
 
+
   tasks:
+    - name: Add Centos Extras
+      shell: yum-config-manager --enable extras
+      become: yes
+
     - name: Install Docker and Git
       yum:
         name:
